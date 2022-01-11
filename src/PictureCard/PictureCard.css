@@ -1,0 +1,67 @@
+img{
+    max-width: 300px;
+    border-radius: 25px 25px 0 0;
+}
+body{
+    font-family: sans-serif; 
+}
+.cardContainer{
+    max-width: 300px;
+    height: fit-content;
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 20px;
+    border-radius: 16px;
+    height: fit-content;
+}
+.textContainer{
+    padding: 10px;
+    padding-top: 4px;
+}
+.postTitle{
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.postDate{
+    font-size: 16px;
+    padding-bottom: 18px;
+}
+.postDesc{
+    font-size: 16px;
+    opacity: 85%;
+    margin-bottom: 10px;
+}
+.line-clamp-4 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+.readMoreButton{
+    border: none;
+    color: white;
+    font-size: 16px;
+}
+.readMoreButton:hover{
+    text-decoration: underline;
+}
+.hidden{
+    visibility: hidden;
+}
+.likeButton{
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    height: 30px;
+    width: 55px;
+    border-radius: 25px;
+    margin-bottom: 15px;;
+}
+.likeButton:focus{
+    background-color: white;
+    border: 2px solid white;
+    color: black;
+}
