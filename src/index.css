@@ -15,9 +15,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient( black , purple);
+  background-image: linear-gradient( #1F2638 , #223149 );
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: 100%;
-  overflow-x: hidden;
 }
