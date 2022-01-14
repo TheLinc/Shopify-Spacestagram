@@ -1,9 +1,11 @@
+/*styling for home page below width of 600px*/
 @media only screen and (max-width: 600px) {
     div.content{
         margin-top: 125px;
     }
 }
 
+/*styling for home page component*/
 .content {
     margin-top: 164px;
     padding: 10px 16px;
@@ -40,14 +42,6 @@
     margin-top: 35px;
     border: 5px solid white;
     border-radius: 50%;
-}
-.dateInput{
-    display: block;
-    border: 2px solid white;
-    border-radius: 5px;
-    color: white;
-    font-family: sans-serif;
-    height: 30px;
 }
 .row{
     display: flex;

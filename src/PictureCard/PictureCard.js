@@ -2,12 +2,14 @@ import './PictureCard.css';
 import _uniqueId from 'lodash/uniqueId';
 import { Component } from 'react';
 import { db }from '../firebase-config';
-import { collection, getDoc, getDocs, doc, setDoc} from 'firebase/firestore';
+import { collection, getDoc, doc, setDoc} from 'firebase/firestore';
 
 class PictureCard extends Component{
 
     constructor(props){
         super(props);
+
+        //create unique ID's for each card to avoid confilicts with getElementById
         this.uniqueTextID = _uniqueId('postDesc_');
         this.uniqueButtonID = _uniqueId('postReadMore_');
         this.uniqueContainerID = _uniqueId('cardContainer_');
@@ -24,6 +26,7 @@ class PictureCard extends Component{
             likeButton: null,
         }
     }
+
     async componentDidMount(){
         const desc = document.getElementById(this.uniqueTextID);
         const readMoreButton = document.getElementById(this.uniqueButtonID);
@@ -31,26 +34,35 @@ class PictureCard extends Component{
         const likeButton = document.getElementById(this.uniqueLikeButtonID);
 
         try{
+            //check to see if post is already in DB
             const docRef = doc(db, "posts", this.props.postObj.title);
             const document = await getDoc(docRef);
+
+            //ref DB collection
             const col = collection(db, "posts");
 
             let liked = false;
 
+            //if post is in DB check if it is liked and set to "liked" var
             if (document.data()){
                 liked =  document.data().liked;
                 console.log("POST IN DATABASE", document.data());
-            } else{
+            } 
+            //if post is not in DB, add it and set liked to false
+            else{
                 await setDoc(doc(col, this.props.postObj.title), {
                     liked: false,
                 });
                 console.log("POST NOT IN DATABASE");
             }
-    
+            
+            //check to see if description is long and needs read more button
             var readMoreEnabled = false;
             if (desc.offsetHeight < desc.scrollHeight || desc.offsetWidth < desc.scrollWidth) {
                 readMoreEnabled = true;
             } 
+
+            //update state
             this.setState({
                 readMoreEn: readMoreEnabled, 
                 descElement: desc, 
@@ -65,11 +77,12 @@ class PictureCard extends Component{
         }
     }
 
+    //updates the image as being loaded
     handleImageLoaded(){
         this.setState({imageLoaded: true});
-        this.props.parentCallback();
     }
 
+    //updates the liked state of post and updates DB
     async handleLike(){
         const col = collection(db, "posts");
         const liked = !this.state.liked;
@@ -81,6 +94,7 @@ class PictureCard extends Component{
 
         this.setState({liked: liked});
 
+        //changes style of like button
         if(liked){
             likeButton.classList.add("postLiked");
         }else{
@@ -90,10 +104,12 @@ class PictureCard extends Component{
 
     render(){
         let expanded = false;
+        //hides read more button if description is short
         if(!this.state.readMoreEn && this.state.readMoreButton){
             this.state.readMoreButton.classList.add("hidden");
         }
 
+        //gets height of post once image has loaded to set row height
         if(this.state.cardContainer && this.state.imageLoaded){
             const container = this.state.cardContainer;
             const cardHeight = container.offsetHeight + 20;
@@ -101,6 +117,7 @@ class PictureCard extends Component{
             container.setAttribute("style", "grid-row-end: span "+ rowEnd);
         }
 
+        //sets initial style of like button
         if(this.state.likeButton){
             if(this.state.liked){
                 this.state.likeButton.classList.add("postLiked");
@@ -109,6 +126,7 @@ class PictureCard extends Component{
             }
         }
 
+        //handles the toggling of read more button and the related changing of post size
         function expandReadMore(readMoreEn, descElement, readMoreButton, cardContainer){
             if(readMoreEn && descElement && cardContainer){
                 if(!expanded){
@@ -128,6 +146,7 @@ class PictureCard extends Component{
         }
 
         const postObj = this.props.postObj;
+        //returns card if API data is accessible
         if(postObj){
             return (  
                 <div className="cardContainer" id={this.uniqueContainerID} tabIndex="0">
@@ -139,7 +158,12 @@ class PictureCard extends Component{
                         <div id={this.uniqueTextID} className="line-clamp-4 postDesc">{postObj.explanation}</div>
                         <button id={this.uniqueButtonID} className="readMoreButton" 
                             onClick={
-                                ()=>{expandReadMore(this.state.readMoreEn, this.state.descElement, this.state.readMoreButton, this.state.cardContainer)}
+                                ()=>{expandReadMore(
+                                        this.state.readMoreEn, 
+                                        this.state.descElement, 
+                                        this.state.readMoreButton, 
+                                        this.state.cardContainer
+                                    )}
                             }>Read More
                         </button>
                     </div>

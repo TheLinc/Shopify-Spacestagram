@@ -20,3 +20,7 @@ body {
   background-attachment: fixed;
   height: 100%;
 }
+
+div:focus, button:focus{
+  border: 2px solid orange;
+}
