@@ -149,8 +149,8 @@ class PictureCard extends Component{
         //returns card if API data is accessible
         if(postObj){
             return (  
-                <div className="cardContainer" id={this.uniqueContainerID} tabIndex="0">
-                    <img className="cardImg" src={postObj.url} onLoad={this.handleImageLoaded.bind(this)}></img>
+                <div className="cardContainer" id={this.uniqueContainerID}>
+                    <img className="cardImg" src={postObj.url} onLoad={this.handleImageLoaded.bind(this)} alt={"image of "+ postObj.title}></img>
                     <div className="textContainer">
                         <button className="likeButton" id={this.uniqueLikeButtonID} onClick={this.handleLike.bind(this)}><i className="fa fa-thumbs-up"></i></button>
                         <div className="postTitle">{postObj.title}</div>

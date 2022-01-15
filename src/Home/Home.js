@@ -71,7 +71,7 @@ class Home extends Component{
             else{
                 return(
                     <div className="loadingImgContainer">
-                        <img className="loadingImg" src={LoadingImage}></img>
+                        <img className="loadingImg" src={LoadingImage} alt="loading image of astronaut walking on planet as it spins"></img>
                     </div>
                 );
             }
