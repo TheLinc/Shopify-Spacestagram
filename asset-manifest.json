@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Shopify-Spacestagram/static/css/main.a5d24af3.css",
+    "main.css": "/Shopify-Spacestagram/static/css/main.37f2fc61.css",
     "main.js": "/Shopify-Spacestagram/static/js/main.d38afd25.js",
     "static/js/787.3792fe1f.chunk.js": "/Shopify-Spacestagram/static/js/787.3792fe1f.chunk.js",
     "static/media/loading.gif": "/Shopify-Spacestagram/static/media/loading.05e4277f6819f36eb5e0.gif",
     "static/media/SpacestagramLogo.png": "/Shopify-Spacestagram/static/media/SpacestagramLogo.4dbcca2990e6929698b7.png",
     "index.html": "/Shopify-Spacestagram/index.html",
-    "main.a5d24af3.css.map": "/Shopify-Spacestagram/static/css/main.a5d24af3.css.map",
+    "main.37f2fc61.css.map": "/Shopify-Spacestagram/static/css/main.37f2fc61.css.map",
     "main.d38afd25.js.map": "/Shopify-Spacestagram/static/js/main.d38afd25.js.map",
     "787.3792fe1f.chunk.js.map": "/Shopify-Spacestagram/static/js/787.3792fe1f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a5d24af3.css",
+    "static/css/main.37f2fc61.css",
     "static/js/main.d38afd25.js"
   ]
 }
