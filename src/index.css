@@ -21,6 +21,6 @@ body {
   height: 100%;
 }
 
-div:focus, button:focus{
-  border: 2px solid orange;
+button:focus{
+  border: 2px solid #96BF48;
 }

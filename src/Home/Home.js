@@ -15,10 +15,13 @@ class Home extends Component{
 
     async componentDidMount(){
         const today = new Date();
+        const pastDay = new Date();
+
+        pastDay.setDate(pastDay.getDate()-8);
 
         //API returns pictures from current day to 8 days in the past
         const endDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        const startDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate()-8);
+        const startDate = pastDay.getFullYear()+'-'+(pastDay.getMonth()+1)+'-'+pastDay.getDate();
     
         try{
             //fetching data from APOD API from NASA
