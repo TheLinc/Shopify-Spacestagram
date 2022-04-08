@@ -18,6 +18,9 @@ You may also see any lint errors in the console.
 
 This project was created to be submitted with my application to Shopify's Front-end Developer Internship position
 
+##Hosted on GitHub pages at: 
+https://thelinc.github.io/Shopify-Spacestagram/
+
 ### Technical Requirements:
 
 This project meets all the requirements specified by Shopify's documentation.
